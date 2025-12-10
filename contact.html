@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact • Alaska Cruise Planner</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="styles/hands.css?v=lab8">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <div class="brand">Alaska Cruise Planner</div>
+    <nav>
+      <a href="index.html#about" title="Back to the About section">About</a>
+      <a href="index.html#guides" title="View cruise planning guides">Guides</a>
+      <a href="guides/packing.html" title="Packing list and clothing tips">Packing</a>
+      <a href="guides/excursions.html" title="Excursion ideas and ports">Excursions</a>
+      <a href="guides/dining.html" title="Dining and onboard tips">Dining</a>
+    </nav>
+  </div>
+</header>
+
+<!-- BANNER IMAGE -->
+<div class="header-banner">
+  <div class="container">
+    <h1>Plan My Alaska Cruise</h1>
+    <p>Send me your ship, dates, and questions – I’ll reply with personalized ideas.</p>
+  </div>
+</div>
+
+<main class="container">
+
+  <section class="section" id="contact-page">
+    <h2>Contact Summer</h2>
+
+    <p style="max-width: 650px;">
+      I specialize in helping first-time and returning Alaska cruisers feel prepared,
+      not overwhelmed. Share a few details below and I’ll send back suggestions for
+      packing, excursions, and onboard life.
+    </p>
+
+    <p style="margin: 1rem 0;">
+      <strong><i class="fa-solid fa-envelope"></i> Email:</strong>
+      <a href="mailto:summerhansen82@gmail.com">summerhansen82@gmail.com</a><br>
+      <strong><i class="fa-solid fa-phone"></i> Phone:</strong>
+      <a href="tel:5037379398">503-737-9398</a>
+    </p>
+
+    <!-- FORM: builds a mailto: link + shows a thank-you popup -->
+    <form class="contact-form" id="contactForm">
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="Name" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="Email" type="email" required>
+      </div>
+
+      <div class="field">
+        <label for="ship">Cruise ship &amp; dates</label>
+        <input id="ship" name="Ship and dates"
+               placeholder="Ex: Royal Caribbean – June 10–17">
+      </div>
+
+      <div class="field">
+        <label for="message">What do you need help planning?</label>
+        <textarea id="message" name="Message" rows="4"
+                  placeholder="Packing list, excursions, dining, glacier days…"></textarea>
+      </div>
+
+      <button class="btn" type="submit">
+        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+        Send message
+      </button>
+
+      <p class="hint">
+        <i class="fa-solid fa-circle-info"></i>
+        After you click send, your email program will open with this message filled in.
+      </p>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">© 2025 Alaska Cruise Planner • Summer Hansen</div>
+</footer>
+
+<!-- tiny script for thank-you popup + mailto: link -->
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();   // stop normal submit
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const ship = document.getElementById("ship").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    // build the email body
+    let body = "";
+    body += "Name: " + name + "%0D%0A";
+    body += "Email: " + email + "%0D%0A";
+    if (ship) body += "Ship & dates: " + ship + "%0D%0A%0D%0A";
+    if (message) body += "Message:%0D%0A" + encodeURIComponent(message);
+
+    const mailtoLink =
+      "mailto:summerhansen82@gmail.com"
+      + "?subject=" + encodeURIComponent("Alaska Cruise Planning Request")
+      + "&body=" + body;
+
+    // open email client
+    window.location.href = mailtoLink;
+
+    // friendly confirmation
+    alert("Thanks, " + (name || "there") + "! Your email window should be open.\n" +
+          "If nothing appears, check that you have a default email program set up.");
+  });
+</script>
+
+</body>
+</html>
