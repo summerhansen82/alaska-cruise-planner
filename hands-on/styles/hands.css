@@ -1,0 +1,413 @@
+/* Summer Hansen – 2025-11-26 – CS 125H - Lab 9 */
+
+/* palette + tokens */
+:root{
+  --bg: #fff7fb;            /* whisper pink */
+  --surface: #ffffff;       /* cards */
+  --ink: #2c2c2c;
+  --muted: #6b6b6b;
+  --brand: #c26ea3;         /* rosy */
+  --brand-2: #7aa8d2;       /* dusty blue */
+  --radius: 18px;
+  --shadow: 0 8px 24px rgba(0,0,0,.07);
+
+  --heading-font: "Playfair Display", "Times New Roman", serif;
+}
+
+/* reset-ish */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+img{max-width:100%;height:auto;display:block}
+
+/* base */
+body{
+  font-family: "Poppins", system-ui, Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 10% -10%, #ffe8f4 0%, transparent 40%),
+              radial-gradient(1000px 600px at 110% 20%, #e6f1fb 0%, transparent 45%),
+              var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+/* layout helpers */
+.container{ width: min(1100px, 92%); margin: 0 auto; }
+
+/* header / nav */
+.site-header{
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255,255,255,.85); backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: .8rem 0;
+}
+.brand{
+  font-weight:700; font-size:1.25rem; color: var(--brand);
+  letter-spacing:.3px;
+}
+.nav a{
+  color: var(--ink); text-decoration:none; font-weight:500; margin-left:1rem;
+}
+.nav a:hover{ color: var(--brand); }
+
+/* hero */
+.hero{ padding: 3.5rem 0 2.5rem; }
+.hero .wrap{
+  background: linear-gradient(135deg, #fff, #fff9fd 60%);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  display:grid; gap:1rem; grid-template-columns: 1.4fr 1fr;
+}
+.hero h1{
+  font-family: var(--heading-font);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin: 0 0 .25rem; color: var(--ink);
+}
+.hero p{ color: var(--muted); margin:0 0 1rem; }
+.hero-skip{
+  margin-top: .5rem;
+  font-size: .9rem;
+}
+.hero-skip a{ text-decoration: underline; }
+
+.btn{
+  display:inline-block; border-radius: 999px; padding:.7rem 1rem;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color:#fff; text-decoration:none; font-weight:600; box-shadow: var(--shadow);
+}
+.btn:hover{ filter: brightness(1.05); }
+.hero .art{
+  border-radius: var(--radius);
+  overflow:hidden;
+  min-height: 280px;              /* keep hero art nicely cropped */
+}
+.hero .art img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* sections */
+.section{ padding: 2rem 0; }
+.section h2{
+  font-family: var(--heading-font);
+  font-size: 1.4rem; margin: 0 0 1rem; color: var(--ink);
+}
+
+/* cards */
+.grid{ display:grid; gap:1rem; grid-template-columns: repeat(3, 1fr); }
+.card{
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,.06);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .25s ease;
+}
+.card h3{
+  margin:.25rem 0 .4rem;
+  font-size:1.05rem;
+}
+.card h3 i{
+  margin-right: .4rem;
+  color: var(--brand-2);
+}
+.card p{ color: var(--muted); margin:0 }
+.card:hover{
+  transform: translateY(-4px);
+}
+
+/* footer */
+.site-footer{
+  margin-top: 2rem;
+  padding: 1.25rem 0;
+  text-align:center;
+  color: var(--muted);
+}
+
+/* small helper in contact section */
+#contact.section {
+  padding-top: 3rem;
+  padding-bottom: 3.5rem;
+}
+#contact .btn {
+  margin-top: 1rem;
+}
+.back-top{
+  margin-top: 1rem;
+  font-size: .9rem;
+}
+
+/* FLOAT LAYOUT DEMO (from earlier lab) */
+#quick-facts .float-box{
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  padding: 12px 14px;
+}
+#quick-facts .float-box:last-of-type{ margin-right: 0; }
+
+#quick-facts .float-box img{
+  float: left;
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 2px 12px 8px 0;
+}
+#quick-facts h3{
+  font-size:1rem;
+}
+#quick-facts h3 i{
+  margin-right:.35rem;
+  color: var(--brand-2);
+}
+
+/* CLEAR requirement */
+.clearfix{ clear: both; }
+
+/* Make floats stack on small screens */
+@media (max-width: 700px){
+  #quick-facts .float-box{
+    float: none;
+    width: 100%;
+    margin: 0 0 12px 0;
+  }
+  #quick-facts .float-box img{
+    float: none;
+    margin: 0 0 8px 0;
+  }
+}
+
+/* --------------------------------------------- */
+/* RESPONSIVE ENHANCEMENTS                      */
+/* --------------------------------------------- */
+
+/* Softer background for tiny screens */
+@media (max-width: 500px){
+  body {
+    background: var(--bg);
+  }
+}
+
+/* Center the navigation links on small screens */
+@media (max-width: 600px){
+  .nav {
+    flex-direction: column;
+    gap: .5rem;
+    text-align: center;
+  }
+  .nav a {
+    margin-left: 0;
+  }
+}
+
+/* Slightly larger text on very large screens */
+@media (min-width: 1200px){
+  body {
+    font-size: 1.1rem;
+  }
+}
+
+/* HERO + GRID responsive tweaks */
+@media (max-width: 900px){
+  .hero .wrap{ grid-template-columns: 1fr; }
+  .grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px){
+  .grid{ grid-template-columns: 1fr; }
+}
+/* banner on contact page (uses one of your glacier images) */
+.header-banner{
+  background-image: linear-gradient(135deg, rgba(0,0,0,.25), rgba(0,0,0,.45)),
+                    url("../images/david-lindahl-FT8DFpyoByw-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 2.5rem 0;
+  margin-bottom: 1.5rem;
+}
+.header-banner h1{
+  font-family: var(--heading-font);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin: 0 0 .3rem;
+}
+.header-banner p{
+  margin: 0;
+  max-width: 540px;
+}
+
+/* contact form */
+.contact-form{
+  max-width: 550px;
+  margin: 1.5rem auto 0;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,.06);
+}
+.contact-form .field{
+  margin-bottom: 1rem;
+}
+.contact-form label{
+  display:block;
+  font-weight:500;
+  margin-bottom:.2rem;
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:.55rem .6rem;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,.15);
+  font:inherit;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline:2px solid var(--brand-2);
+  outline-offset:1px;
+}
+.contact-form .hint{
+  margin-top:.75rem;
+  font-size:.85rem;
+  color:var(--muted);
+}
+.contact-form .hint i{
+  margin-right:.35rem;
+}
+
+/* --------------------------------------------- */
+/* DARK COLOR SCHEME (prefers-color-scheme)     */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+/* LAB 9: TABLE STYLES                          */
+/* --------------------------------------------- */
+
+.package-table{
+  margin: 1.5rem 0 2rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.25rem 1.25rem;
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+.package-table figcaption{
+  font-weight: 600;
+  margin-bottom: .75rem;
+  color: var(--ink);
+  font-family: var(--heading-font);
+  font-size: 1.2rem;
+}
+
+.package-table table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .95rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.package-table thead{
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #fff;
+}
+
+.package-table thead th{
+  padding: .65rem .75rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Borders + base cells */
+.package-table tbody th,
+.package-table tbody td,
+.package-table tfoot th,
+.package-table tfoot td{
+  padding: .6rem .75rem;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+
+/* Row striping with nth-child */
+.package-table tbody tr:nth-child(even){
+  background: rgba(0,0,0,.03);
+}
+
+/* Highlight middle category */
+.package-table tbody tr.featured-row{
+  background: rgba(194, 110, 163, 0.08); /* soft rosy tint */
+  font-weight: 500;
+}
+
+/* Column-specific alignment using nth-child */
+.package-table tbody td:nth-child(3){
+  text-align: center;  /* Nights */
+}
+.package-table tbody td:nth-child(4){
+  text-align: right;   /* Price */
+}
+
+/* Travel Style (row header) */
+.package-table tbody th[scope="row"]{
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* Footer */
+.package-table tfoot{
+  background: rgba(122, 168, 210, 0.14); /* soft blue tint */
+}
+
+.package-table tfoot th{
+  text-align: right;
+  font-weight: 600;
+}
+
+.package-table tfoot td{
+  font-weight: 500;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg: #020617;
+    --surface: #111827;
+    --ink: #f9fafb;
+    --muted: #9ca3af;
+    --brand: #f472b6;
+    --brand-2: #60a5fa;
+    --shadow: 0 10px 30px rgba(0,0,0,.6);
+  }
+
+  body{
+    background: radial-gradient(1200px 600px at 10% -10%, #111827 0%, transparent 40%),
+                radial-gradient(1000px 600px at 110% 20%, #1f2937 0%, transparent 45%),
+                var(--bg);
+    color: var(--ink);
+  }
+
+  .site-header{
+    background: rgba(17,24,39,.9);
+    border-bottom-color: rgba(255,255,255,.06);
+  }
+
+  .hero .wrap,
+  #quick-facts .float-box,
+  .card{
+    background: var(--surface);
+    border-color: rgba(255,255,255,.08);
+  }
+
+  .site-footer{
+    color: var(--muted);
+  }
+}

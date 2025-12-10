@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alaska Cruise Planner • Summer Hansen</title>
+
+  <!-- Google Fonts for headings + body -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Your stylesheet -->
+  <link rel="stylesheet" href="styles/hands.css?v=lab8">
+</head>
+
+<body id="top">
+
+  <!-- NAV HEADER -->
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">Alaska Cruise Planner</div>
+      <nav>
+        <a href="#about" title="Jump to the About section">About</a>
+        <a href="#guides" title="See cruise planning guides">Guides</a>
+        <a href="contact.html" title="Contact page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="about">
+    <div class="wrap">
+      <div>
+        <h1>Alaska Cruise Planning Made Easy</h1>
+        <p>From packing lists to port excursions — I help you plan a smooth, unforgettable Alaska cruise without stress.</p>
+        <a class="btn" href="#guides" title="Scroll to my Alaska cruise planning guides">
+          Explore Alaska Cruise Guides
+        </a>
+        <p class="hero-skip">
+          or <a href="#quick-facts" title="Jump to fast Alaska cruise facts on this page">skip to quick facts ↓</a>
+        </p>
+      </div>
+
+      <!-- Responsive image: different files at different viewport sizes -->
+      <div class="art">
+        <picture>
+          <!-- large, wide-deck photo for desktops -->
+          <source srcset="images/david-lindahl-FT8DFpyoByw-unsplash.jpg" media="(min-width: 900px)">
+          <!-- cozy indoor dining view for tablets -->
+          <source srcset="images/jannik-qbW9KLqWDiQ-unsplash.jpg" media="(min-width: 600px)">
+          <!-- glacier viewing / smaller composition for mobile -->
+          <img src="images/mckayla-crump-ZxTQ479aDoQ-unsplash.jpg"
+               alt="Cruise ship views of Alaska glaciers and ocean">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOAT DEMO / QUICK FACTS -->
+  <section class="section" id="quick-facts">
+    <h2>Quick Alaska Cruise Facts</h2>
+
+    <div class="float-box">
+      <img src="images/david-lindahl-FT8DFpyoByw-unsplash.jpg" alt="Deck view of pool and glaciers">
+      <h3><i class="fa-solid fa-calendar-days" aria-hidden="true"></i>Best Months</h3>
+      <p>May–September. Peak wildlife in June–July; cheaper fares in May and late August.</p>
+    </div>
+
+    <div class="float-box">
+      <img src="images/fr-daniel-ciucci-U8TAPrEeyAY-unsplash.jpg" alt="Whale tail in Alaska waters">
+      <h3><i class="fa-solid fa-mountain-sun" aria-hidden="true"></i>What You’ll See</h3>
+      <p>Glaciers, whales, otters, eagles, and pastel sunsets that feel endless.</p>
+    </div>
+
+    <div class="clearfix"></div>
+  </section>
+
+  <!-- CARD GRID SECTION -->
+    <!-- CARD GRID SECTION -->
+  <section class="section" id="guides">
+    <h2>Alaska Cruise Planning Guides</h2>
+
+    <!-- Lab 9: Tabular data example -->
+    <figure class="package-table">
+      <figcaption>Sample Alaska Cruise Itinerary Comparison</figcaption>
+
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Travel Style</th>
+            <th scope="col">Itinerary</th>
+            <th scope="col">Nights</th>
+            <th scope="col">Base Fare</th>
+            <th scope="col">Highlights</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row" rowspan="2">Budget</th>
+            <td>Round-trip Seattle</td>
+            <td>5</td>
+            <td>$899</td>
+            <td>Inside cabin, 1 glacier day, classic onboard activities</td>
+          </tr>
+          <tr>
+            <td>Vancouver to Anchorage</td>
+            <td>6</td>
+            <td>$1,049</td>
+            <td>Oceanview cabin, scenic fjords, onboard naturalist talks</td>
+          </tr>
+
+          <tr class="featured-row">
+            <th scope="row" rowspan="2">Classic</th>
+            <td>Seattle to Whittier</td>
+            <td>7</td>
+            <td>$1,499</td>
+            <td>Balcony cabin, 2 glacier days, flexible dining options</td>
+          </tr>
+          <tr>
+            <td>Vancouver round-trip</td>
+            <td>7</td>
+            <td>$1,399</td>
+            <td>Balcony cabin, Hubbard Glacier, enrichment lectures</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Luxury</th>
+            <td>Small-ship Inside Passage</td>
+            <td>10</td>
+            <td>$3,250</td>
+            <td>Suite, small-group excursions, premium drinks included</td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="3">Lowest base fare</th>
+            <td colspan="2">$899 (Budget • 5-night Seattle round-trip)</td>
+          </tr>
+          <tr>
+            <th scope="row" colspan="3">Best balcony value</th>
+            <td colspan="2">$1,399 (Classic • 7-night Vancouver round-trip)</td>
+          </tr>
+        </tfoot>
+      </table>
+    </figure>
+
+    <div class="grid">
+
+      <a href="guides/packing.html" class="card"
+         title="Open the Alaska cruise packing guide">
+        <img src="images/mckayla-crump-ZxTQ479aDoQ-unsplash.jpg" alt="Person bundled up on a ship railing">
+        <h3><i class="fa-solid fa-suitcase-rolling" aria-hidden="true"></i> What to Pack</h3>
+        <p>Layering, waterproof essentials, and must-have accessories for chilly glacier days.</p>
+      </a>
+
+      <a href="guides/excursions.html" class="card"
+         title="View ideas for Alaska cruise excursions and ports">
+        <img src="images/mick-kirchman-OivACr_Clfo-unsplash.jpg" alt="Helicopter on an Alaska glacier">
+        <h3><i class="fa-solid fa-helicopter" aria-hidden="true"></i> Excursions &amp; Ports</h3>
+        <p>The best guided tours, DIY day trips, and breathtaking glacier viewing spots.</p>
+      </a>
+
+      <a href="guides/dining.html" class="card"
+         title="Tips for dining and onboard life during your cruise">
+        <img src="images/jannik-qbW9KLqWDiQ-unsplash.jpg" alt="Dining table with ocean view on a cruise ship">
+        <h3><i class="fa-solid fa-utensils" aria-hidden="true"></i> Dining &amp; Onboard Tips</h3>
+        <p>How to eat well on board, skip the lines, and snag a scenic-window table.</p>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">© 2025 Alaska Cruise Planner • Summer Hansen • Portland, OR</div>
+  </footer>
+
+</body>
+</html>
