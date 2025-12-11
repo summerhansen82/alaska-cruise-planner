@@ -51,6 +51,92 @@ body{
 }
 .nav a:hover{ color: var(--brand); }
 
+/* hamburger toggle */
+.nav-toggle{
+  display: none;   /* hidden checkbox */
+}
+
+.nav-toggle-label{
+  display: none;   /* we'll show it on small screens */
+  cursor: pointer;
+  width: 32px;
+  height: 24px;
+  position: relative;
+}
+
+/* three lines of the hamburger */
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--ink);
+  content: "";
+  transition: transform .2s ease, opacity .2s ease, top .2s ease, bottom .2s ease;
+}
+
+.nav-toggle-label span{
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-toggle-label span::before{
+  top: -8px;
+}
+
+.nav-toggle-label span::after{
+  bottom: -8px;
+}
+
+/* X animation when checked */
+.nav-toggle:checked + .nav-toggle-label span{
+  transform: rotate(45deg);
+}
+
+.nav-toggle:checked + .nav-toggle-label span::before{
+  top: 0;
+}
+
+.nav-toggle:checked + .nav-toggle-label span::after{
+  bottom: 0;
+  transform: rotate(-90deg);
+}
+
+/* Mobile navigation: show hamburger, collapse links */
+@media (max-width: 700px){
+  .nav{
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  /* show hamburger */
+  .nav-toggle-label{
+    display: block;
+  }
+
+  /* hide links by default on small screens */
+  .nav nav{
+    display: none;
+    width: 100%;
+    margin-top: .5rem;
+    border-top: 1px solid rgba(0,0,0,.08);
+    padding-top: .5rem;
+  }
+
+  .nav nav a{
+    display: block;
+    margin: .25rem 0;
+  }
+
+  /* when checkbox is checked, show the nav links */
+  .nav-toggle:checked ~ nav{
+    display: block;
+  }
+}
+
 /* hero */
 .hero{ padding: 3.5rem 0 2.5rem; }
 .hero .wrap{
